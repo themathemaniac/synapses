@@ -204,6 +204,7 @@ document.querySelectorAll('.course-tile').forEach(el => {
 const photoSrcs = [
   "", "", "",
   "", "", "",
+  "", "", "",
   "", "", ""
 ];
 
@@ -503,3 +504,5 @@ document.addEventListener('keydown', e => {
     }, true); // use capture to catch event bubbles from <video>
   }
 })();
+
+/* Chat widget is handled by scripts/chatbot.js — see that file. */

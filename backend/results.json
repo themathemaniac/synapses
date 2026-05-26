@@ -1,0 +1,31 @@
+{
+  "ICSE_2026": [
+    { "name": "Avigyan Banerjee", "school": "St. Claret School", "percentage": "98.8%" },
+    { "name": "Aaheli Ghosh", "school": "St. Xavier's Institute", "percentage": "98.6%" },
+    { "name": "Prajeet Chakraborty", "school": "St. Claret School", "percentage": "98%" },
+    { "name": "Prajit Chakraborty", "school": "St. Claret School", "percentage": "97%" },
+    { "name": "Soham Chakraborty", "school": "St. Xavier's Institute", "percentage": "97%" },
+    { "name": "Ankan Roy", "school": "St. Claret School", "percentage": "96.6%" },
+    { "name": "Sreyesh Kanjilal", "school": "St. Claret School", "percentage": "96%" },
+    { "name": "Sankhaneel Mandal", "school": "St. Xavier's Institute", "percentage": "95.5%" },
+    { "name": "Trsishan", "school": "St. Judes High School", "percentage": "95.4%" },
+    { "name": "Debangshi", "school": "St. Judes High School", "percentage": "92%" },
+    { "name": "Debparna Chatterjee", "school": "St. Judes High School", "percentage": "91%" },
+    { "name": "Ankit Bose", "school": "St. Judes High School", "percentage": "87%" },
+    { "name": "Pranjal Ghosh", "school": "St. Xavier's Institute", "percentage": "94%" }
+  ],
+  "XII_SCI_2026": [
+    { "name": "Shatabisha Paul", "school": "Adamas International", "percentage": "97.4% (ISC)", "extra": "JEE Main NTA Score of 99.34" },
+    { "name": "Shifa Khapangi", "school": "Rose Bank High School", "percentage": "85.7%" },
+    { "name": "Mayukhi", "school": "St. Judes High School", "percentage": "85.5%" },
+    { "name": "Nirjhar Basu", "school": "St. Judes High School", "percentage": "85%" },
+    { "name": "Sagnik Palit", "school": "Kalyani Public School", "percentage": "84.5%" },
+    { "name": "Aritri Sarkar", "school": "St. Claret School", "percentage": "83%" }
+  ],
+  "COMPETITIVE_AND_HISTORICAL": [
+    { "name": "Sharadutta Mukherjee", "school": "Julian Day School", "achievement": "JEE Rank 1055", "year_info": "ISC XII Gen (2022)" },
+    { "name": "Aivita Roy", "school": "N/A", "achievement": "NEET State Rank 238", "year_info": "CBSE 93% (2023)" },
+    { "name": "Raunak Dey", "school": "St. Judes High School", "achievement": "IISER Qualified, JEE Rank 2834", "year_info": "N/A" },
+    { "name": "Shatabisha Paul", "school": "Adamas International", "achievement": "Class 10 score of 98.3%", "year_info": "(2024)" }
+  ]
+}

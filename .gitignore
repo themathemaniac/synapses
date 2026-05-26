@@ -1,0 +1,9 @@
+# Dependencies
+node_modules/
+
+# Environment secrets — NEVER commit this
+backend/.env
+
+# OS junk
+.DS_Store
+Thumbs.db

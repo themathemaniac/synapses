@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  chatbot-backend:
+    build: .
+    container_name: mathemaniac-chatbot-backend
+    ports:
+      - "3001:3001"
+    env_file:
+      - .env
+    volumes:
+      # Mount the current directory to the container for hot-reloading (optional, but good for dev)
+      - .:/usr/src/app
+      # Anonymous volume for node_modules so it uses the container's installed modules
+      - /usr/src/app/node_modules
