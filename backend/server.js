@@ -172,6 +172,7 @@ setInterval(() => {
 
 /* ── Express app ──────────────────────────────────────────── */
 const app = express();
+app.set('trust proxy', 1); /* Trust Railway's reverse proxy for accurate IP detection */
 
 /* Allowed origins from .env (comma-separated) */
 const ALLOWED_ORIGINS = (process.env.ALLOWED_ORIGINS || '')
