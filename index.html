@@ -253,48 +253,80 @@
   <!-- ===========================
        TESTIMONIALS
   =========================== -->
-  <section class="section-alt section-pad" id="about" aria-labelledby="testi-h">
+  <section class="dark-premium-section section-pad" id="about" aria-labelledby="testi-h">
     <div class="container">
       <div class="section-head reveal">
         <span class="sec-tag">Student Stories</span>
         <h2 class="sec-title" id="testi-h">Our Success Stories</h2>
         <div class="sec-rule" aria-hidden="true"></div>
       </div>
-      <div class="testi-grid">
+      <div class="testi-carousel">
 
-        <article class="testi-card reveal d1" aria-label="Testimonial from Ananya Paul">
+        <article class="testi-card" aria-label="Testimonial from Ananya Paul">
           <div class="av-wrap">
-            <div class="av-circle" style="background:linear-gradient(135deg,#FFD700,#F0A800)" aria-label="AP initials">
-              AP</div>
+            <div class="av-circle" style="background:linear-gradient(135deg,#FFD700,#F0A800)" aria-label="AP initials">AP</div>
             <div class="av-ring" aria-hidden="true"></div>
           </div>
-          <p class="testi-quote">The practical approach to learning here changed my perspective. Learning new concepts
-            has never been easier.</p>
+          <p class="testi-quote">The practical approach to learning here changed my perspective. Learning new concepts has never been easier.</p>
           <div class="testi-name">Ananya Paul</div>
         </article>
 
-        <article class="testi-card reveal d2" aria-label="Testimonial from Rajan Saha">
+        <article class="testi-card" aria-label="Testimonial from Rajan Saha">
           <div class="av-wrap">
-            <div class="av-circle" style="background:linear-gradient(135deg,#800000,#C04000);color:#fff"
-              aria-label="RS initials">RS</div>
+            <div class="av-circle" style="background:linear-gradient(135deg,#800000,#C04000);color:#fff" aria-label="RS initials">RS</div>
             <div class="av-ring" aria-hidden="true"></div>
           </div>
-          <p class="testi-quote">The mentors are truly world-class. They don't just teach from books, they share
-            real-life experiences.</p>
+          <p class="testi-quote">The mentors are truly world-class. They don't just teach from books, they share real-life experiences.</p>
           <div class="testi-name">Rajan Saha</div>
         </article>
 
-        <article class="testi-card reveal d3" aria-label="Testimonial from Elena Roy">
+        <article class="testi-card" aria-label="Testimonial from Elena Roy">
           <div class="av-wrap">
-            <div class="av-circle" style="background:linear-gradient(135deg,#C8A000,#FFD700)" aria-label="ER initials">
-              ER</div>
+            <div class="av-circle" style="background:linear-gradient(135deg,#C8A000,#FFD700)" aria-label="ER initials">ER</div>
             <div class="av-ring" aria-hidden="true"></div>
           </div>
-          <p class="testi-quote">Access to the latest tech and the lab facilities helped me find my interest as a
-            physics enthusiast.</p>
+          <p class="testi-quote">Access to the latest tech and the lab facilities helped me find my interest as a physics enthusiast.</p>
           <div class="testi-name">Elena Roy</div>
         </article>
 
+        <article class="testi-card" aria-label="Testimonial from Ishaan Gupta">
+          <div class="av-wrap">
+            <div class="av-circle" style="background:linear-gradient(135deg,#2D8C82,#1B5E57);color:#fff" aria-label="IG initials">IG</div>
+            <div class="av-ring" aria-hidden="true"></div>
+          </div>
+          <p class="testi-quote">The interactive sessions and personal attention gave me the edge I needed to crack the toughest exams.</p>
+          <div class="testi-name">Ishaan Gupta</div>
+        </article>
+
+        <article class="testi-card" aria-label="Testimonial from Meera Reddy">
+          <div class="av-wrap">
+            <div class="av-circle" style="background:linear-gradient(135deg,#5B6EF5,#4557DE);color:#fff" aria-label="MR initials">MR</div>
+            <div class="av-ring" aria-hidden="true"></div>
+          </div>
+          <p class="testi-quote">An unparalleled educational environment. The focus on conceptual clarity over rote memorization is fantastic.</p>
+          <div class="testi-name">Meera Reddy</div>
+        </article>
+
+        <article class="testi-card" aria-label="Testimonial from Vikram Singh">
+          <div class="av-wrap">
+            <div class="av-circle" style="background:linear-gradient(135deg,#E8E5FF,#CFC9FF);color:#101615" aria-label="VS initials">VS</div>
+            <div class="av-ring" aria-hidden="true"></div>
+          </div>
+          <p class="testi-quote">I gained incredible confidence. The study materials and regular assessments perfectly tracked my growth.</p>
+          <div class="testi-name">Vikram Singh</div>
+        </article>
+
+        <article class="testi-card" aria-label="Testimonial from Sarah Khan">
+          <div class="av-wrap">
+            <div class="av-circle" style="background:linear-gradient(135deg,#FF8C42,#FF3C38);color:#fff" aria-label="SK initials">SK</div>
+            <div class="av-ring" aria-hidden="true"></div>
+          </div>
+          <p class="testi-quote">Every doubt was cleared with extreme patience. The dedicated problem-solving sessions are a lifesaver.</p>
+          <div class="testi-name">Sarah Khan</div>
+        </article>
+
+        <button class="carousel-nav carousel-prev" aria-label="Previous review">&#10094;</button>
+        <button class="carousel-nav carousel-next" aria-label="Next review">&#10095;</button>
       </div>
     </div>
   </section>
@@ -310,43 +342,42 @@
         <h2 class="sec-title" id="courses-h">Our Courses</h2>
         <div class="sec-rule" aria-hidden="true"></div>
       </div>
-      <div class="courses-grid">
+      <div class="courses-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;">
 
-        <article class="course-card reveal d1" id="scheduleCard" role="button" tabindex="0"
-          aria-label="View course schedule (PDF)" title="Click to view the course schedule">
-          <div class="cc-thumb cc-thumb--schedule">
-            <div class="schedule-card-inner">
-              <div class="sch-icon" aria-hidden="true"><img src="assets/logo/physics.webp" alt="Physics subject icon"
-                  style="width:2.8rem;height:2.8rem;object-fit:contain;display:block;margin:0 auto;"></div>
-              <div class="sch-label">Course Schedule for <br> Class X Physics</div>
-              <div class="sch-sub">Click to view PDF</div>
-            </div>
+        <article class="new-course-card reveal d1" role="button" tabindex="0" onclick="window.location.href='#'" aria-label="View Computer Science Course details">
+          <h3 class="ncc-title">Computer Science</h3>
+          <p class="ncc-desc">Master software engineering, AI, and cybersecurity through hands-on project-based learning.</p>
+          <div class="ncc-features-grid">
+            <div class="ncc-feature-box"><span style="color: #5B6EF5; font-size: 1.5rem; font-weight: bold;">&lt;&gt;</span></div>
+            <div class="ncc-feature-box"><span style="color: #5B6EF5; font-size: 1.5rem;">&#9881;</span></div>
+            <div class="ncc-feature-box"><span style="color: #5B6EF5; font-size: 1.5rem;">&#9000;</span></div>
+            <div class="ncc-feature-box"><span style="color: #5B6EF5; font-size: 1.5rem;">&#128302;</span></div>
           </div>
+          <a href="#" class="ncc-link">Learn More &rarr;</a>
         </article>
 
-        <article class="course-card reveal d2" id="scheduleCard2" role="button" tabindex="0"
-          aria-label="View course schedule (PDF)" title="Click to view the course schedule">
-          <div class="cc-thumb cc-thumb--schedule">
-            <div class="schedule-card-inner">
-              <div class="sch-icon" aria-hidden="true"><img src="assets/logo/chemistry.webp"
-                  alt="Chemistry subject icon"
-                  style="width:2.8rem;height:2.8rem;object-fit:contain;display:block;margin:0 auto;"></div>
-              <div class="sch-label">Course Schedule for <br> Class XI Chemistry</div>
-              <div class="sch-sub">Click to view PDF</div>
-            </div>
+        <article class="new-course-card reveal d2" role="button" tabindex="0" onclick="window.location.href='#'" aria-label="View Business Management Course details">
+          <h3 class="ncc-title">Business Management</h3>
+          <p class="ncc-desc">Develop leadership skills and strategic thinking to thrive in the global business landscape.</p>
+          <div class="ncc-features-grid">
+            <div class="ncc-feature-box"><span style="color: #5B6EF5; font-size: 1.5rem;">&#128202;</span></div>
+            <div class="ncc-feature-box"><span style="color: #5B6EF5; font-size: 1.5rem;">&#128101;</span></div>
+            <div class="ncc-feature-box"><span style="color: #5B6EF5; font-size: 1.5rem;">&#127758;</span></div>
+            <div class="ncc-feature-box"><span style="color: #5B6EF5; font-size: 1.5rem;">&#128200;</span></div>
           </div>
+          <a href="#" class="ncc-link">Learn More &rarr;</a>
         </article>
 
-        <article class="course-card reveal d3" id="scheduleCard3" role="button" tabindex="0"
-          aria-label="View course schedule (PDF)" title="Click to view the course schedule">
-          <div class="cc-thumb cc-thumb--schedule">
-            <div class="schedule-card-inner">
-              <div class="sch-icon" aria-hidden="true"><img src="assets/logo/maths.webp" alt="Mathematics subject icon"
-                  style="width:2.8rem;height:2.8rem;object-fit:contain;display:block;margin:0 auto;"></div>
-              <div class="sch-label">Course Schedule for <br> Class X Maths</div>
-              <div class="sch-sub">Click to view PDF</div>
-            </div>
+        <article class="new-course-card reveal d3" role="button" tabindex="0" onclick="window.location.href='#'" aria-label="View Visual Arts Course details">
+          <h3 class="ncc-title">Visual Arts</h3>
+          <p class="ncc-desc">Explore your creativity through traditional techniques and modern digital media environments.</p>
+          <div class="ncc-features-grid">
+            <div class="ncc-feature-box"><span style="color: #5B6EF5; font-size: 1.5rem;">&#127912;</span></div>
+            <div class="ncc-feature-box"><span style="color: #5B6EF5; font-size: 1.5rem;">&#128396;</span></div>
+            <div class="ncc-feature-box"><span style="color: #5B6EF5; font-size: 1.5rem;">&#128247;</span></div>
+            <div class="ncc-feature-box"><span style="color: #5B6EF5; font-size: 1.5rem;">&#128397;</span></div>
           </div>
+          <a href="#" class="ncc-link">Learn More &rarr;</a>
         </article>
 
       </div>

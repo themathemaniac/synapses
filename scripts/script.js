@@ -506,3 +506,64 @@ document.addEventListener('keydown', e => {
 })();
 
 /* Chat widget is handled by scripts/chatbot.js — see that file. */
+/* --- Testimonial Carousel --- */
+(function() {
+  const cards = Array.from(document.querySelectorAll('.testi-carousel .testi-card'));
+  if (cards.length === 0) return;
+  
+  let currentIndex = 0;
+  
+  function updateCarousel() {
+    cards.forEach((card, index) => {
+      card.classList.remove('pos-center', 'pos-left', 'pos-right', 'pos-hidden-left', 'pos-hidden-right');
+      
+      let diff = index - currentIndex;
+      if (diff < -Math.floor(cards.length / 2)) diff += cards.length;
+      if (diff > Math.floor(cards.length / 2)) diff -= cards.length;
+      
+      if (diff === 0) {
+        card.classList.add('pos-center');
+      } else if (diff === -1) {
+        card.classList.add('pos-left');
+      } else if (diff === 1) {
+        card.classList.add('pos-right');
+      } else if (diff < -1) {
+        card.classList.add('pos-hidden-left');
+      } else if (diff > 1) {
+        card.classList.add('pos-hidden-right');
+      }
+    });
+  }
+
+  updateCarousel();
+  
+  let autoPlay = setInterval(nextSlide, 3500);
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % cards.length;
+    updateCarousel();
+  }
+
+  function prevSlide() {
+    currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+    updateCarousel();
+  }
+
+  const btnNext = document.querySelector('.carousel-next');
+  const btnPrev = document.querySelector('.carousel-prev');
+
+  if (btnNext && btnPrev) {
+    btnNext.addEventListener('click', () => {
+      clearInterval(autoPlay);
+      nextSlide();
+      autoPlay = setInterval(nextSlide, 3500);
+    });
+
+    btnPrev.addEventListener('click', () => {
+      clearInterval(autoPlay);
+      prevSlide();
+      autoPlay = setInterval(nextSlide, 3500);
+    });
+  }
+})();
+
