@@ -626,74 +626,40 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
-  
-  });
 });
 
 window.toggleDropdown = function(element, event) {
   event.stopPropagation();
   event.preventDefault();
 
-  const PORTAL_ID = 'featureDropdownPortal';
-  let portal = document.getElementById(PORTAL_ID);
+  const dropdown = element.querySelector('.feature-dropdown');
+  if (!dropdown) return;
 
-  // If portal exists and is anchored to this same element, toggle it off
-  if (portal && portal._anchor === element) {
-    portal.remove();
-    return;
+  const isShowing = dropdown.style.display === 'block';
+
+  // Close all other dropdowns
+  document.querySelectorAll('.feature-dropdown').forEach(d => {
+    d.style.display = 'none';
+    if (d.parentElement) {
+      d.parentElement.style.zIndex = '';
+    }
+  });
+
+  if (!isShowing) {
+    dropdown.style.display = 'block';
+    element.style.zIndex = '999';
   }
-
-  // Remove any existing portal
-  if (portal) portal.remove();
-
-  // Clone the dropdown content from the element
-  const sourceDropdown = element.querySelector('.feature-dropdown');
-  if (!sourceDropdown) return;
-
-  // Create portal
-  portal = document.createElement('div');
-  portal.id = PORTAL_ID;
-  portal._anchor = element;
-  portal.innerHTML = sourceDropdown.innerHTML;
-
-  // Style: fixed position, same look as the inline dropdown
-  Object.assign(portal.style, {
-    position:     'fixed',
-    background:   'white',
-    border:       '1px solid #eee',
-    borderRadius: '10px',
-    boxShadow:    '0 8px 24px rgba(0,0,0,0.14)',
-    width:        '160px',
-    zIndex:       '99999',
-    textAlign:    'center',
-    padding:      '4px 0',
-  });
-
-  // Position below the clicked box
-  const rect = element.getBoundingClientRect();
-  portal.style.top  = (rect.bottom + 8) + 'px';
-  portal.style.left = (rect.left + rect.width / 2 - 80) + 'px';
-
-  // Copy click listeners from cloned items
-  portal.querySelectorAll('.dropdown-item').forEach((item, i) => {
-    const src = sourceDropdown.querySelectorAll('.dropdown-item')[i];
-    if (src) {
-      const onclickAttr = src.getAttribute('onclick');
-      if (onclickAttr) item.setAttribute('onclick', onclickAttr);
-    }
-  });
-
-  document.body.appendChild(portal);
-
-  // Close when clicking outside
-  const onOutsideClick = (e) => {
-    if (!portal.contains(e.target) && e.target !== element) {
-      portal.remove();
-      document.removeEventListener('click', onOutsideClick, true);
-    }
-  };
-  setTimeout(() => document.addEventListener('click', onOutsideClick, true), 0);
 };
+
+// Close dropdowns when clicking outside
+document.addEventListener('click', (e) => {
+  document.querySelectorAll('.feature-dropdown').forEach(d => {
+    if (d.style.display === 'block' && d.parentElement && !d.parentElement.contains(e.target)) {
+      d.style.display = 'none';
+      d.parentElement.style.zIndex = '';
+    }
+  });
+});
 
 window.openSyllabusPdf = function(pdfUrl, titleText, event) {
   if (event) {

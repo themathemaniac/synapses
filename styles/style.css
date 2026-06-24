@@ -74,8 +74,7 @@ body {
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 480px;
-    /* wider so the radiance reaches further inward */
+    width: min(480px, 60vw);
     pointer-events: none;
     z-index: 0;
     animation: glow-breathe 7s ease-in-out infinite;
@@ -736,12 +735,19 @@ button {
     align-items: center;
     justify-content: center;
 }
+
 .carousel-nav:hover {
     background: rgba(255, 255, 255, 0.2);
     transform: translateY(-50%) scale(1.1);
 }
-.carousel-prev { left: 10px; }
-.carousel-next { right: 10px; }
+
+.carousel-prev {
+    left: 10px;
+}
+
+.carousel-next {
+    right: 10px;
+}
 
 .av-wrap {
     display: inline-block;
@@ -816,11 +822,8 @@ button {
 /* =============================================
     COURSES GRID
 ============================================= */
-.courses-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
-}
+/* Old .courses-grid definition removed — managed in the NEW COURSE CARDS section below */
+
 
 .course-card {
     background: var(--bg-card);
@@ -1187,9 +1190,20 @@ button {
 }
 
 @keyframes cta-aura {
-    0% { transform: translate(-5%, -5%) scale(1); opacity: 0.5; }
-    50% { transform: translate(5%, 5%) scale(1.05); opacity: 0.8; }
-    100% { transform: translate(-5%, -5%) scale(1); opacity: 0.5; }
+    0% {
+        transform: translate(-5%, -5%) scale(1);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: translate(5%, 5%) scale(1.05);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translate(-5%, -5%) scale(1);
+        opacity: 0.5;
+    }
 }
 
 .cta-band::before {
@@ -1504,7 +1518,7 @@ footer {
 
 @media(max-width:768px) {
     .navbar {
-        padding: 0 20px;
+        padding: 0 16px;
     }
 
     .nav-hamburger {
@@ -1545,12 +1559,32 @@ footer {
         border-bottom: none;
     }
 
-    .hero-inner {
-        grid-template-columns: 1fr;
+    /* Hero */
+    .hero-section {
+        padding: 110px 0 40px;
     }
 
+    .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    /* Testimonials: scale card to fit viewport */
+    .testi-carousel {
+        height: 320px;
+        max-width: 100%;
+    }
+
+    .testi-card {
+        width: min(340px, 86vw);
+        margin-left: calc(min(340px, 86vw) / -2);
+        min-height: 240px;
+        margin-top: -120px;
+        padding: 20px 16px;
+    }
+
+    /* Grids go single-column */
     .testi-grid,
-    .courses-grid,
     .labs-grid {
         grid-template-columns: 1fr;
     }
@@ -1567,7 +1601,7 @@ footer {
 
     .container,
     .cta-wrap {
-        padding: 0 20px;
+        padding: 0 16px;
     }
 
     footer {
@@ -1575,28 +1609,148 @@ footer {
     }
 
     .section-pad {
-        padding: 52px 0;
+        padding: 48px 0;
     }
 
-    /* Fix: course tile text overflow on small phones */
+    /* CTA band */
+    .cta-band {
+        padding: 60px 0;
+    }
+
+    .cta-title {
+        font-size: clamp(1.4rem, 5vw, 2rem);
+    }
+
+    /* Course tiles in hero */
     .course-tile {
         padding: 22px 10px 18px;
     }
 
     .ct-name {
-        font-size: 0.92rem;
+        font-size: 0.9rem;
         overflow-wrap: break-word;
         word-break: break-word;
         hyphens: auto;
     }
 
     .ct-sub {
-        font-size: 0.72rem;
+        font-size: 0.7rem;
     }
 
     .ct-icon {
         font-size: 1.6rem;
         margin-bottom: 7px;
+    }
+
+    /* New course cards on tablet */
+    .new-course-card {
+        padding: 24px 18px;
+    }
+
+    .ncc-title {
+        font-size: 1.2rem;
+    }
+
+    /* Hero buttons wrap properly */
+    .hero-btns {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .btn-primary,
+    .btn-outline {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Small phones (≤ 480px) */
+@media (max-width: 480px) {
+    .navbar {
+        height: 80px;
+        padding: 0 12px;
+    }
+
+    .nav-logo-box {
+        width: 60px;
+        height: 60px;
+    }
+
+    .nav-logo {
+        font-size: 1rem;
+        gap: 8px;
+    }
+
+    .nav-logo-subtitle {
+        font-size: 0.68rem;
+    }
+
+    .nav-links {
+        top: 80px;
+    }
+
+    .hero-section {
+        padding: 95px 0 32px;
+    }
+
+    .course-grid {
+        gap: 10px;
+    }
+
+    .course-tile {
+        padding: 18px 8px 14px;
+    }
+
+    .ct-name {
+        font-size: 0.82rem;
+    }
+
+    /* Testimonial card fits tiny screen */
+    .testi-carousel {
+        height: 300px;
+    }
+
+    .testi-card {
+        width: min(300px, 90vw);
+        margin-left: calc(min(300px, 90vw) / -2);
+        min-height: 200px;
+        margin-top: -100px;
+        padding: 16px 12px;
+    }
+
+    .testi-quote {
+        font-size: 0.75rem;
+        line-height: 1.6;
+    }
+
+    /* Section headings */
+    .section-pad {
+        padding: 36px 0;
+    }
+
+    .section-head {
+        margin-bottom: 28px;
+    }
+
+    .sec-title {
+        font-size: clamp(1.3rem, 6vw, 1.8rem);
+    }
+
+    .cta-band {
+        padding: 48px 0;
+    }
+
+    .btn-cta-main {
+        font-size: 0.85rem;
+        padding: 0.85rem 1.5rem;
+    }
+
+    .ncc-title {
+        font-size: 1.1rem;
+    }
+
+    .ncc-feature-box {
+        height: 80px;
     }
 }
 
@@ -2595,7 +2749,8 @@ video {
     flex-direction: column;
     align-items: flex-end;
     gap: 12px;
-    pointer-events: none; /* children re-enable as needed */
+    pointer-events: none;
+    /* children re-enable as needed */
 }
 
 /* ── Floating Action Button ── */
@@ -2633,14 +2788,17 @@ video {
     position: absolute;
     transition: opacity 0.2s, transform 0.25s;
 }
+
 .chat-fab-icon--close {
     opacity: 0;
     transform: rotate(-90deg) scale(0.7);
 }
+
 .chat-widget.is-open .chat-fab-icon--open {
     opacity: 0;
     transform: rotate(90deg) scale(0.7);
 }
+
 .chat-widget.is-open .chat-fab-icon--close {
     opacity: 1;
     transform: rotate(0deg) scale(1);
@@ -2659,13 +2817,21 @@ video {
     animation: fab-pulse 2.2s ease-in-out infinite;
     transition: opacity 0.2s;
 }
+
 .chat-widget.is-open .chat-fab-pulse {
     opacity: 0;
 }
 
 @keyframes fab-pulse {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(232, 194, 0, 0.55); }
-    60%       { box-shadow: 0 0 0 6px rgba(232, 194, 0, 0); }
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(232, 194, 0, 0.55);
+    }
+
+    60% {
+        box-shadow: 0 0 0 6px rgba(232, 194, 0, 0);
+    }
 }
 
 /* ── Chat Panel ── */
@@ -2676,7 +2842,7 @@ video {
     background: #0e0b06;
     border-radius: 16px;
     border: 1px solid rgba(232, 194, 0, 0.25);
-    box-shadow: 0 16px 60px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(0,0,0,0.5);
+    box-shadow: 0 16px 60px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(0, 0, 0, 0.5);
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -2685,7 +2851,7 @@ video {
     transform: translateY(20px) scale(0.96);
     transform-origin: bottom right;
     transition: opacity 0.28s cubic-bezier(0.4, 0, 0.2, 1),
-                transform 0.28s cubic-bezier(0.34, 1.2, 0.64, 1);
+        transform 0.28s cubic-bezier(0.34, 1.2, 0.64, 1);
     pointer-events: none;
 }
 
@@ -2736,9 +2902,9 @@ video {
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.12);
-    color: rgba(255,255,255,0.5);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.5);
     font-size: 0.75rem;
     display: grid;
     place-items: center;
@@ -2748,8 +2914,8 @@ video {
 }
 
 .chat-panel-close:hover {
-    background: rgba(232,194,0,0.18);
-    border-color: rgba(232,194,0,0.5);
+    background: rgba(232, 194, 0, 0.18);
+    border-color: rgba(232, 194, 0, 0.5);
     color: var(--yellow);
     transform: rotate(90deg);
 }
@@ -2800,7 +2966,9 @@ video {
 }
 
 @keyframes chat-spin {
-    to { transform: rotate(360deg); }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .chat-loading-text {
@@ -2819,11 +2987,13 @@ video {
         left: 14px;
         align-items: flex-end;
     }
+
     .chat-panel {
         width: 100%;
         height: 72vh;
     }
 }
+
 /* =============================================
     NEW COURSE CARDS
 ============================================= */
@@ -2839,17 +3009,115 @@ video {
     flex-direction: column;
     height: 100%;
 }
+
 .new-course-card:hover {
-    transform: translateY(-5px);
     box-shadow: 0 15px 40px rgba(91, 110, 245, 0.15);
     border-color: rgba(91, 110, 245, 0.3);
 }
+
+/* ─── Courses Grid ─────────────────────────────── */
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+/* Course Cards: smooth transition for both animation and hover */
+.courses-grid .new-course-card.reveal {
+    transition: opacity 0.6s ease-out, transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+                box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* ─── Desktop (≥ 901px): side-cards slide from behind centre ── */
+@media (min-width: 901px) {
+    /* d2 (Elevate/centre) pops out first */
+    .courses-grid .new-course-card.reveal.d2 {
+        opacity: 0;
+        transform: scale(0.5);
+        z-index: 2;
+        transition-delay: 0.1s;
+    }
+    /* d1 (Foundation/left) starts behind centre, slides left */
+    .courses-grid .new-course-card.reveal.d1 {
+        opacity: 0;
+        transform: translateX(calc(100% + 30px)) scale(0.9);
+        z-index: 1;
+        transition-delay: 0.55s;
+    }
+    /* d3 (Apex/right) starts behind centre, slides right */
+    .courses-grid .new-course-card.reveal.d3 {
+        opacity: 0;
+        transform: translateX(calc(-100% - 30px)) scale(0.9);
+        z-index: 1;
+        transition-delay: 1.0s;
+    }
+
+    /* Resting states once visible */
+    .courses-grid .new-course-card.reveal.vis.d2 {
+        opacity: 1;
+        transform: scale(1) !important;
+    }
+    .courses-grid .new-course-card.reveal.vis.d1,
+    .courses-grid .new-course-card.reveal.vis.d3 {
+        opacity: 1;
+        transform: translateX(0) scale(0.9) !important;
+    }
+
+    /* Hover — slight lift */
+    .courses-grid .new-course-card.reveal.vis.d2:hover {
+        transform: scale(1.03) !important;
+    }
+    .courses-grid .new-course-card.reveal.vis.d1:hover,
+    .courses-grid .new-course-card.reveal.vis.d3:hover {
+        transform: translateX(0) scale(0.93) !important;
+    }
+}
+
+/* ─── Mobile / Tablet (≤ 900px): single-column, pop in one by one ── */
+@media (max-width: 900px) {
+    .courses-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    /* All three start invisible and small */
+    .courses-grid .new-course-card.reveal.d1,
+    .courses-grid .new-course-card.reveal.d2,
+    .courses-grid .new-course-card.reveal.d3 {
+        opacity: 0;
+        transform: scale(0.85) translateY(24px);
+        /* no transition-delay here — each card triggers individually via IntersectionObserver */
+        transition-delay: 0s;
+    }
+
+    /* Visible state — full size, no side-card shrink */
+    .courses-grid .new-course-card.reveal.vis.d1,
+    .courses-grid .new-course-card.reveal.vis.d2,
+    .courses-grid .new-course-card.reveal.vis.d3 {
+        opacity: 1;
+        transform: scale(1) translateY(0) !important;
+    }
+
+    /* Hover on mobile */
+    .courses-grid .new-course-card.reveal.vis.d1:hover,
+    .courses-grid .new-course-card.reveal.vis.d2:hover,
+    .courses-grid .new-course-card.reveal.vis.d3:hover {
+        transform: scale(1.03) translateY(0) !important;
+    }
+
+    /* Reduce padding on small screens */
+    .new-course-card {
+        padding: 24px 20px;
+    }
+}
+
 .ncc-title {
     color: var(--primary);
     font-weight: 700;
     margin-bottom: 12px;
     font-size: 1.4rem;
 }
+
 .ncc-desc {
     color: #555;
     font-size: 0.95rem;
@@ -2857,12 +3125,14 @@ video {
     margin-bottom: 24px;
     flex-grow: 1;
 }
+
 .ncc-features-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 12px;
     margin-bottom: 24px;
 }
+
 .ncc-feature-box {
     background: linear-gradient(135deg, #F3F5FF 0%, #E8E5FF 100%);
     border: 1px solid rgba(91, 110, 245, 0.1);
@@ -2874,16 +3144,19 @@ video {
     box-shadow: 0 4px 12px rgba(91, 110, 245, 0.08), inset 0 2px 4px rgba(255, 255, 255, 0.6);
     transition: background 0.3s, transform 0.3s, box-shadow 0.3s, border-color 0.3s;
 }
+
 .new-course-card:hover .ncc-feature-box {
     background: linear-gradient(135deg, #E8E5FF 0%, #DCD8FF 100%);
     box-shadow: 0 6px 16px rgba(91, 110, 245, 0.12), inset 0 2px 4px rgba(255, 255, 255, 0.6);
 }
+
 .ncc-feature-box:hover {
     background: linear-gradient(135deg, #DCD8FF 0%, #CFC9FF 100%);
     transform: translateY(-4px) scale(1.03);
     box-shadow: 0 8px 20px rgba(91, 110, 245, 0.2), inset 0 2px 4px rgba(255, 255, 255, 0.8);
     border-color: rgba(91, 110, 245, 0.4);
 }
+
 .ncc-link {
     color: var(--secondary);
     font-weight: 600;
@@ -2892,29 +3165,18 @@ video {
     transition: opacity 0.2s;
     margin-top: auto;
 }
+
 .ncc-link:hover {
     opacity: 0.8;
 }
 
-/* Course Card Layout Enhancements */
+/* Course Card Layout Enhancements — layout hints only, transforms handled by animation rules */
 .course-card-center {
-    transform: scale(1.12);
     z-index: 2;
-    box-shadow: 0 16px 40px rgba(91, 110, 245, 0.2);
-    border-color: rgba(91, 110, 245, 0.5);
-}
-.course-card-center:hover {
-    transform: translateY(-8px) scale(1.12);
 }
 
 .course-card-side {
-    transform: scale(0.9);
-    opacity: 0.85;
     z-index: 1;
-}
-.course-card-side:hover {
-    transform: translateY(-8px) scale(0.9);
-    opacity: 1;
 }
 
 .ncc-feature-box {
@@ -2929,6 +3191,7 @@ video {
     transition: background 0.2s;
     cursor: pointer;
 }
+
 .dropdown-item:hover {
     background: rgba(91, 110, 245, 0.1);
     color: var(--maroon);
@@ -2941,7 +3204,7 @@ video {
     letter-spacing: 0.1em;
     color: #aaa;
     padding: 8px 16px 4px;
-    border-bottom: 1px solid rgba(0,0,0,0.06);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
     margin-bottom: 4px;
     pointer-events: none;
 }
