@@ -441,14 +441,78 @@
           <p class="ncc-desc">Empower Class 10, 12, JEE, and NEET aspirants with focused concept mastery, exam strategy,
             and high-performance preparation.</p>
           <div class="ncc-features-grid">
-            <div class="ncc-feature-box" onclick="openFeatureModal('Elevate', 'Feature 1', event)"><span
-                style="color: #5B6EF5; font-size: 1.5rem;">&#128202;</span></div>
-            <div class="ncc-feature-box" onclick="openFeatureModal('Elevate', 'Feature 2', event)"><span
-                style="color: #5B6EF5; font-size: 1.5rem;">&#128101;</span></div>
-            <div class="ncc-feature-box" onclick="openFeatureModal('Elevate', 'Feature 3', event)"><span
-                style="color: #5B6EF5; font-size: 1.5rem;">&#127758;</span></div>
-            <div class="ncc-feature-box" onclick="openFeatureModal('Elevate', 'Feature 4', event)"><span
-                style="color: #5B6EF5; font-size: 1.5rem;">&#128200;</span></div>
+            <div class="ncc-feature-box" onclick="toggleDropdown(this, event)" style="position: relative;">
+              <span style="color: #5B6EF5; font-size: 1.5rem; font-weight: bold;">NEET</span>
+              <div class="feature-dropdown"
+                style="display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: white; border: 1px solid #eee; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); width: 160px; z-index: 10; text-align: center; padding: 4px 0; margin-top: 8px;">
+                <div class="dropdown-label"
+                  style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #999; padding: 8px 16px 4px;">
+                  NEET</div>
+                <div class="dropdown-item"
+                  onclick="openSyllabusPdf('assets/syllabus/Elevate/NEET/NEET_Physics_Syllabus_Premium_Detailed.pdf', 'NEET &mdash; Physics', event)">
+                  Physics</div>
+                <div class="dropdown-item"
+                  onclick="openSyllabusPdf('assets/syllabus/Elevate/NEET/NEET_Chemistry_Syllabus_Premium_Detailed(1).pdf', 'NEET &mdash; Chemistry', event)">
+                  Chemistry</div>
+                <div class="dropdown-item"
+                  onclick="openSyllabusPdf('assets/syllabus/Elevate/NEET/NEET_Biology_Syllabus_Premium_Detailed(1).pdf', 'NEET &mdash; Biology', event)">
+                  Biology</div>
+              </div>
+            </div>
+            <div class="ncc-feature-box" onclick="toggleDropdown(this, event)" style="position: relative;">
+              <span style="color: #5B6EF5; font-size: 1.5rem; font-weight: bold;">JEE</span>
+              <div class="feature-dropdown"
+                style="display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: white; border: 1px solid #eee; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); width: 160px; z-index: 10; text-align: center; padding: 4px 0; margin-top: 8px;">
+                <div class="dropdown-label"
+                  style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #999; padding: 8px 16px 4px;">
+                  JEE</div>
+                <div class="dropdown-item"
+                  onclick="openSyllabusPdf('assets/syllabus/Elevate/JEE/JEE_Physics_Syllabus_Premium_Detailed.pdf', 'JEE &mdash; Physics', event)">
+                  Physics</div>
+                <div class="dropdown-item"
+                  onclick="openSyllabusPdf('assets/syllabus/Elevate/JEE/JEE_Chemistry_Syllabus_Premium_Detailed.pdf', 'JEE &mdash; Chemistry', event)">
+                  Chemistry</div>
+                <div class="dropdown-item"
+                  onclick="openSyllabusPdf('assets/syllabus/Elevate/JEE/JEE_Maths_Syllabus_Premium_Detailed.pdf', 'JEE &mdash; Maths', event)">
+                  Maths</div>
+              </div>
+            </div>
+            <div class="ncc-feature-box" onclick="toggleDropdown(this, event)" style="position: relative;">
+              <span style="color: #5B6EF5; font-size: 1.5rem; font-weight: bold;">X</span>
+              <div class="feature-dropdown"
+                style="display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: white; border: 1px solid #eee; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); width: 160px; z-index: 10; text-align: center; padding: 4px 0; margin-top: 8px;">
+                <div class="dropdown-label"
+                  style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #999; padding: 8px 16px 4px;">
+                  Class X</div>
+                <div class="dropdown-item"
+                  onclick="openSyllabusPdf('assets/syllabus/Elevate/10/Class_10_Physics_Syllabus_Premium.pdf', 'Class X &mdash; Physics', event)">
+                  Physics</div>
+                <div class="dropdown-item"
+                  onclick="openSyllabusPdf('assets/syllabus/Elevate/10/Class_10_Chemistry_Syllabus_Premium.pdf', 'Class X &mdash; Chemistry', event)">
+                  Chemistry</div>
+                <div class="dropdown-item"
+                  onclick="openSyllabusPdf('assets/syllabus/Elevate/10/Class_10_Maths_Syllabus_Premium.pdf', 'Class X &mdash; Maths', event)">
+                  Maths</div>
+              </div>
+            </div>
+            <div class="ncc-feature-box" onclick="toggleDropdown(this, event)" style="position: relative;">
+              <span style="color: #5B6EF5; font-size: 1.5rem; font-weight: bold;">XII</span>
+              <div class="feature-dropdown"
+                style="display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: white; border: 1px solid #eee; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); width: 160px; z-index: 10; text-align: center; padding: 4px 0; margin-top: 8px;">
+                <div class="dropdown-label"
+                  style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #999; padding: 8px 16px 4px;">
+                  Class XII</div>
+                <div class="dropdown-item"
+                  onclick="openSyllabusPdf('assets/syllabus/Elevate/12/Class_12_Physics_Syllabus_Premium.pdf', 'Class XII &mdash; Physics', event)">
+                  Physics</div>
+                <div class="dropdown-item"
+                  onclick="openSyllabusPdf('assets/syllabus/Elevate/12/Class_12_Chemistry_Syllabus_Premium.pdf', 'Class XII &mdash; Chemistry', event)">
+                  Chemistry</div>
+                <div class="dropdown-item"
+                  onclick="openSyllabusPdf('assets/syllabus/Elevate/12/Class_12_Maths_Syllabus_Premium.pdf', 'Class XII &mdash; Maths', event)">
+                  Maths</div>
+              </div>
+            </div>
           </div>
         </article>
 

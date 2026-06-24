@@ -635,31 +635,79 @@ window.toggleDropdown = function(element, event) {
   const dropdown = element.querySelector('.feature-dropdown');
   if (!dropdown) return;
 
-  const isShowing = dropdown.style.display === 'block';
+  // If a portal already exists for THIS element, toggle it off
+  const existing = document.getElementById('featureDropdownPortal');
+  if (existing) {
+    const isSame = existing._sourceElement === element;
+    existing.remove();
+    if (isSame) return;
+  }
 
-  // Close all other dropdowns
-  document.querySelectorAll('.feature-dropdown').forEach(d => {
-    d.style.display = 'none';
-    if (d.parentElement) {
-      d.parentElement.style.zIndex = '';
-    }
+  // ── Build the body-level portal ──────────────────────────────
+  const portal = document.createElement('div');
+  portal.id = 'featureDropdownPortal';
+  portal._sourceElement = element;
+
+  const rect = element.getBoundingClientRect();
+  const centerX = rect.left + rect.width / 2;
+  let topY    = rect.bottom + 8;
+
+  Object.assign(portal.style, {
+    position:     'fixed',
+    top:          topY + 'px',
+    left:         centerX + 'px',
+    transform:    'translateX(-50%)',
+    background:   '#fff',
+    border:       '1px solid #e5e7eb',
+    borderRadius: '10px',
+    boxShadow:    '0 8px 24px rgba(0,0,0,0.14)',
+    width:        '170px',
+    zIndex:       '999999',
+    textAlign:    'center',
+    padding:      '4px 0',
   });
 
-  if (!isShowing) {
-    dropdown.style.display = 'block';
-    element.style.zIndex = '999';
+  // Clone content from the hidden template inside the box
+  portal.innerHTML = dropdown.innerHTML;
+  document.body.appendChild(portal);
+
+  // ── Viewport collision correction ────────────────────────────
+  const ph = portal.offsetHeight;
+  const pw = portal.offsetWidth;
+
+  // Flip above if not enough room below
+  if (topY + ph > window.innerHeight - 10) {
+    portal.style.top = Math.max(8, rect.top - ph - 8) + 'px';
+  }
+
+  // Keep within left / right edges
+  const halfW = pw / 2;
+  if (centerX - halfW < 8) {
+    portal.style.left      = '8px';
+    portal.style.transform = 'none';
+  } else if (centerX + halfW > window.innerWidth - 8) {
+    portal.style.left      = (window.innerWidth - pw - 8) + 'px';
+    portal.style.transform = 'none';
   }
 };
 
-// Close dropdowns when clicking outside
+// Close portal on outside click
 document.addEventListener('click', (e) => {
-  document.querySelectorAll('.feature-dropdown').forEach(d => {
-    if (d.style.display === 'block' && d.parentElement && !d.parentElement.contains(e.target)) {
-      d.style.display = 'none';
-      d.parentElement.style.zIndex = '';
+  const portal = document.getElementById('featureDropdownPortal');
+  if (portal) {
+    const clickedInsidePortal  = portal.contains(e.target);
+    const clickedSourceElement = portal._sourceElement && portal._sourceElement.contains(e.target);
+    if (!clickedInsidePortal && !clickedSourceElement) {
+      portal.remove();
     }
-  });
+  }
 });
+
+// Close portal on any scroll so it never drifts from its anchor
+window.addEventListener('scroll', () => {
+  const portal = document.getElementById('featureDropdownPortal');
+  if (portal) portal.remove();
+}, true);
 
 window.openSyllabusPdf = function(pdfUrl, titleText, event) {
   if (event) {
