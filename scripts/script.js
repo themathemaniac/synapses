@@ -567,3 +567,160 @@ document.addEventListener('keydown', e => {
   }
 })();
 
+/* ============================================================
+   FEATURE MODAL LOGIC
+============================================================ */
+window.openFeatureModal = function(courseName, featureName, event) {
+  if (event) {
+    event.stopPropagation();
+    event.preventDefault();
+  }
+  
+  const overlay = document.getElementById('featureModalOverlay');
+  const title = document.getElementById('featureModalTitle');
+  const sub = document.getElementById('featureModalSub');
+  
+  if (overlay && title && sub) {
+    title.textContent = courseName;
+    sub.textContent = featureName + ' - Detailed Information';
+    overlay.classList.add('open');
+    
+    // Reset iframe state when opening modal
+    const iframe = document.getElementById('featurePdfIframe');
+    if (iframe) {
+      iframe.style.display = 'none';
+      iframe.src = '';
+    }
+  }
+};
+
+window.loadFeaturePdf = function(pdfUrl) {
+  const iframe = document.getElementById('featurePdfIframe');
+  if (iframe) {
+    iframe.src = pdfUrl;
+    iframe.style.display = 'block';
+  }
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+  const overlay = document.getElementById('featureModalOverlay');
+  const closeBtn = document.getElementById('closeFeatureModal');
+  const inner = document.getElementById('featureModalInner');
+
+  if (overlay && closeBtn && inner) {
+    closeBtn.addEventListener('click', () => {
+      overlay.classList.remove('open');
+      const embed = document.getElementById('featurePdfEmbed');
+      if (embed) { embed.src = ''; embed.style.display = 'none'; }
+      const modalText = document.getElementById('featureModalText');
+      if (modalText) modalText.style.display = 'block';
+    });
+
+    overlay.addEventListener('click', (e) => {
+      if (!inner.contains(e.target)) {
+        overlay.classList.remove('open');
+        const embed = document.getElementById('featurePdfEmbed');
+        if (embed) { embed.src = ''; embed.style.display = 'none'; }
+        const modalText = document.getElementById('featureModalText');
+        if (modalText) modalText.style.display = 'block';
+      }
+    });
+  }
+  
+  });
+});
+
+window.toggleDropdown = function(element, event) {
+  event.stopPropagation();
+  event.preventDefault();
+
+  const PORTAL_ID = 'featureDropdownPortal';
+  let portal = document.getElementById(PORTAL_ID);
+
+  // If portal exists and is anchored to this same element, toggle it off
+  if (portal && portal._anchor === element) {
+    portal.remove();
+    return;
+  }
+
+  // Remove any existing portal
+  if (portal) portal.remove();
+
+  // Clone the dropdown content from the element
+  const sourceDropdown = element.querySelector('.feature-dropdown');
+  if (!sourceDropdown) return;
+
+  // Create portal
+  portal = document.createElement('div');
+  portal.id = PORTAL_ID;
+  portal._anchor = element;
+  portal.innerHTML = sourceDropdown.innerHTML;
+
+  // Style: fixed position, same look as the inline dropdown
+  Object.assign(portal.style, {
+    position:     'fixed',
+    background:   'white',
+    border:       '1px solid #eee',
+    borderRadius: '10px',
+    boxShadow:    '0 8px 24px rgba(0,0,0,0.14)',
+    width:        '160px',
+    zIndex:       '99999',
+    textAlign:    'center',
+    padding:      '4px 0',
+  });
+
+  // Position below the clicked box
+  const rect = element.getBoundingClientRect();
+  portal.style.top  = (rect.bottom + 8) + 'px';
+  portal.style.left = (rect.left + rect.width / 2 - 80) + 'px';
+
+  // Copy click listeners from cloned items
+  portal.querySelectorAll('.dropdown-item').forEach((item, i) => {
+    const src = sourceDropdown.querySelectorAll('.dropdown-item')[i];
+    if (src) {
+      const onclickAttr = src.getAttribute('onclick');
+      if (onclickAttr) item.setAttribute('onclick', onclickAttr);
+    }
+  });
+
+  document.body.appendChild(portal);
+
+  // Close when clicking outside
+  const onOutsideClick = (e) => {
+    if (!portal.contains(e.target) && e.target !== element) {
+      portal.remove();
+      document.removeEventListener('click', onOutsideClick, true);
+    }
+  };
+  setTimeout(() => document.addEventListener('click', onOutsideClick, true), 0);
+};
+
+window.openSyllabusPdf = function(pdfUrl, titleText, event) {
+  if (event) {
+    event.stopPropagation();
+    event.preventDefault();
+  }
+  
+  // Remove portal dropdown if open
+  const portal = document.getElementById('featureDropdownPortal');
+  if (portal) portal.remove();
+  
+  const overlay   = document.getElementById('featureModalOverlay');
+  const title     = document.getElementById('featureModalTitle');
+  const sub       = document.getElementById('featureModalSub');
+  const embed     = document.getElementById('featurePdfEmbed');
+  const modalText = document.getElementById('featureModalText');
+  
+  if (!overlay || !embed) return;
+
+  title.textContent = 'Course Syllabus';
+  sub.textContent = titleText;
+  
+  // Hide text, show PDF
+  if (modalText) modalText.style.display = 'none';
+  embed.src = pdfUrl;
+  embed.style.display = 'block';
+  embed.style.height = '100%';
+  
+  overlay.classList.add('open');
+};
