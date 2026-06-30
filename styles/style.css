@@ -476,6 +476,108 @@ button {
     transform: translateY(-2px);
 }
 
+/* Student Ticker */
+.student-ticker-wrap {
+    width: 100%;
+    max-width: 420px;
+    margin: 2rem auto 0 auto;
+    overflow: hidden;
+    padding: 1rem;
+    background: transparent;
+    position: relative;
+}
+
+.student-ticker {
+    display: flex;
+    width: max-content;
+    animation: ticker 25s linear infinite;
+}
+
+.student-ticker:hover {
+    animation-play-state: paused;
+}
+
+.student-group {
+    display: flex;
+    gap: 1rem;
+    padding-right: 1rem;
+}
+
+.student-card {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 1rem 1.5rem;
+    border-radius: 16px;
+    width: 400px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s, border-color 0.4s, background 0.4s;
+}
+
+.student-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(255, 204, 0, 0.15);
+    border-color: rgba(255, 204, 0, 0.4);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.st-img-wrap {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--yellow);
+    box-shadow: 0 0 15px rgba(255, 204, 0, 0.2);
+    flex-shrink: 0;
+    background: var(--surface);
+}
+
+.st-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.st-info {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.st-name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    color: var(--text-color);
+    font-size: 1.15rem;
+    white-space: nowrap;
+    margin-bottom: 2px;
+}
+
+.st-scl {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+}
+
+.st-pct {
+    color: var(--yellow);
+    font-weight: 800;
+    font-size: 1.35rem;
+    font-family: 'Orbitron', sans-serif;
+    text-shadow: 0 0 10px rgba(255, 204, 0, 0.2);
+}
+
+@keyframes ticker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
 /* Hero image column */
 /*.hero-img-col {}*/
 .hero-img-wrap {
