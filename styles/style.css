@@ -3,28 +3,28 @@
 ============================================= */
 :root,
 [data-theme="light"] {
-    --bg: #FAFBF8;
-    --bg-alt: #F0F2ED;
+    --bg: #FDFDFD;
+    --bg-alt: #F3F4F6;
     --bg-card: #FFFFFF;
-    --surface: rgba(250, 251, 248, 0.92);
-    --yellow: #5B6EF5;
-    --yellow-soft: rgba(91, 110, 245, 0.13);
-    --yellow-hover: #4557DE;
-    --maroon: #2D8C82;
-    --text-head: #101615;
-    --text-body: #202D2B;
-    --text-muted: #596D6A;
-    --border: rgba(45, 140, 130, 0.26);
-    --border-card: rgba(45, 140, 130, 0.32);
-    --border-yellow: rgba(91, 110, 245, 0.55);
-    --shadow-card: 0 2px 16px rgba(15, 35, 33, 0.11), 0 1px 4px rgba(15, 35, 33, 0.06);
-    --shadow-hover: 0 8px 32px rgba(15, 35, 33, 0.18), 0 2px 8px rgba(15, 35, 33, 0.08);
-    --nav-bg: rgba(250, 251, 248, 0.93);
-    --footer-bg: #0C1211;
-    --footer-text: rgba(255, 255, 255, 0.55);
-    --footer-head: #E8E5FF;
-    --footer-border: rgba(255, 255, 255, 0.08);
-    --input-bg: rgba(255, 255, 255, 0.07);
+    --surface: rgba(253, 253, 253, 0.9);
+    --yellow: #7C3AED;
+    --yellow-soft: rgba(124, 58, 237, 0.1);
+    --yellow-hover: #6D28D9;
+    --maroon: #2563EB;
+    --text-head: #111827;
+    --text-body: #374151;
+    --text-muted: #6B7280;
+    --border: rgba(17, 24, 39, 0.1);
+    --border-card: rgba(17, 24, 39, 0.08);
+    --border-yellow: rgba(124, 58, 237, 0.3);
+    --shadow-card: 0 2px 16px rgba(17, 24, 39, 0.06), 0 1px 4px rgba(17, 24, 39, 0.04);
+    --shadow-hover: 0 12px 32px rgba(37, 99, 235, 0.15), 0 4px 12px rgba(17, 24, 39, 0.08);
+    --nav-bg: rgba(253, 253, 253, 0.85);
+    --footer-bg: #0F172A;
+    --footer-text: rgba(255, 255, 255, 0.6);
+    --footer-head: #F8FAFC;
+    --footer-border: rgba(255, 255, 255, 0.1);
+    --input-bg: rgba(255, 255, 255, 0.05);
 }
 
 
@@ -85,12 +85,12 @@ body {
     transform-origin: left center;
     background:
         radial-gradient(ellipse 100% 70% at 0% 38%,
-            rgba(45, 140, 130, 0.18) 0%,
-            rgba(45, 140, 130, 0.1) 30%,
-            rgba(45, 140, 130, 0.04) 58%,
+            rgba(37, 99, 235, 0.18) 0%,
+            rgba(37, 99, 235, 0.1) 30%,
+            rgba(37, 99, 235, 0.04) 58%,
             transparent 80%),
         radial-gradient(ellipse 60% 90% at 0% 68%,
-            rgba(45, 140, 130, 0.08) 0%,
+            rgba(37, 99, 235, 0.08) 0%,
             transparent 65%);
 }
 
@@ -101,12 +101,12 @@ body {
     /* offset so the two sides breathe alternately */
     background:
         radial-gradient(ellipse 100% 70% at 100% 62%,
-            rgba(91, 110, 245, 0.18) 0%,
-            rgba(91, 110, 245, 0.1) 30%,
-            rgba(91, 110, 245, 0.04) 58%,
+            rgba(124, 58, 237, 0.18) 0%,
+            rgba(124, 58, 237, 0.1) 30%,
+            rgba(124, 58, 237, 0.04) 58%,
             transparent 80%),
         radial-gradient(ellipse 60% 90% at 100% 32%,
-            rgba(91, 110, 245, 0.08) 0%,
+            rgba(124, 58, 237, 0.08) 0%,
             transparent 65%);
 }
 
@@ -251,8 +251,19 @@ button {
 .nav-logo-box img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
+    object-position: left center;
     display: block;
+}
+
+.f-logo-box {
+    width: 4em;
+    height: 4em;
+    object-fit: cover;
+    object-position: left center;
+    vertical-align: middle;
+    display: inline-block;
+    border-radius: 8px;
 }
 
 .nav-links {
@@ -287,13 +298,13 @@ button {
     border-radius: 7px;
     padding: 0.5rem 1.25rem;
     transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-    box-shadow: 0 2px 10px rgba(45, 140, 130, 0.25);
+    box-shadow: 0 2px 10px rgba(37, 99, 235, 0.25);
 }
 
 .nav-enroll-btn:hover {
-    background: #206B62;
+    background: #1D4ED8;
     transform: translateY(-1px);
-    box-shadow: 0 4px 16px rgba(45, 140, 130, 0.35);
+    box-shadow: 0 4px 16px rgba(37, 99, 235, 0.35);
 }
 
 /* Hamburger button — visible only on mobile */
@@ -371,7 +382,7 @@ button {
 
 .course-tile {
     background: linear-gradient(145deg, rgba(255, 255, 255, 1) 0%, rgba(250, 251, 248, 0.7) 100%);
-    border: 1px solid rgba(45, 140, 130, 0.15);
+    border: 1px solid rgba(37, 99, 235, 0.15);
     border-radius: 16px;
     padding: 44px 24px 34px;
     text-align: center;
@@ -379,7 +390,7 @@ button {
     position: relative;
     overflow: hidden;
     backdrop-filter: blur(10px);
-    box-shadow: 0 4px 15px rgba(15, 35, 33, 0.04), inset 0 2px 4px rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 15px rgba(17, 24, 39, 0.04), inset 0 2px 4px rgba(255, 255, 255, 0.8);
     transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s, border-color 0.3s;
 }
 
@@ -387,7 +398,7 @@ button {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(45, 140, 130, 0.06) 0%, rgba(91, 110, 245, 0.06) 100%);
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.06) 0%, rgba(124, 58, 237, 0.06) 100%);
     border-radius: 16px;
     opacity: 0;
     transition: opacity 0.3s;
@@ -395,8 +406,8 @@ button {
 
 .course-tile:hover {
     transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 15px 30px rgba(45, 140, 130, 0.12), 0 5px 15px rgba(91, 110, 245, 0.08);
-    border-color: rgba(91, 110, 245, 0.3);
+    box-shadow: 0 15px 30px rgba(37, 99, 235, 0.12), 0 5px 15px rgba(124, 58, 237, 0.08);
+    border-color: rgba(124, 58, 237, 0.3);
 }
 
 .course-tile:hover::after {
@@ -447,14 +458,14 @@ button {
     border-radius: 8px;
     padding: 0.68rem 1.5rem;
     display: inline-block;
-    box-shadow: 0 3px 12px rgba(45, 140, 130, 0.28);
+    box-shadow: 0 3px 12px rgba(37, 99, 235, 0.28);
     transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
 }
 
 .btn-primary:hover {
-    background: #206B62;
+    background: #1D4ED8;
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(45, 140, 130, 0.35);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35);
 }
 
 .btn-outline {
@@ -699,7 +710,7 @@ button {
     background: var(--yellow);
     border-radius: 2px;
     margin: 12px auto 16px;
-    box-shadow: 0 0 8px rgba(91, 110, 245, 0.4);
+    box-shadow: 0 0 8px rgba(124, 58, 237, 0.4);
 }
 
 .sec-sub {
@@ -877,7 +888,7 @@ button {
     position: absolute;
     inset: -4px;
     border-radius: 50%;
-    border: 2px solid rgba(91, 110, 245, 0.55);
+    border: 2px solid rgba(124, 58, 237, 0.55);
     animation: av-pulse 2.5s ease-in-out infinite;
 }
 
@@ -1312,8 +1323,8 @@ button {
     content: '';
     position: absolute;
     inset: -50%;
-    background: radial-gradient(ellipse at 40% 40%, rgba(45, 140, 130, 0.12) 0%, transparent 40%),
-        radial-gradient(ellipse at 60% 60%, rgba(91, 110, 245, 0.08) 0%, transparent 40%);
+    background: radial-gradient(ellipse at 40% 40%, rgba(37, 99, 235, 0.12) 0%, transparent 40%),
+        radial-gradient(ellipse at 60% 60%, rgba(124, 58, 237, 0.08) 0%, transparent 40%);
     pointer-events: none;
     animation: cta-aura 12s ease-in-out infinite;
 }
@@ -1359,14 +1370,14 @@ button {
     border-radius: 9px;
     padding: 0.9rem 2.2rem;
     display: inline-block;
-    box-shadow: 0 4px 20px rgba(91, 110, 245, 0.35);
+    box-shadow: 0 4px 20px rgba(124, 58, 237, 0.35);
     transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
 }
 
 .btn-cta-main:hover {
     background: #4557DE;
     transform: translateY(-3px);
-    box-shadow: 0 8px 30px rgba(91, 110, 245, 0.5);
+    box-shadow: 0 8px 30px rgba(124, 58, 237, 0.5);
 }
 
 /* =============================================
@@ -1440,7 +1451,7 @@ footer {
 .f-soc:hover {
     border-color: var(--yellow);
     color: var(--yellow);
-    background: rgba(91, 110, 245, 0.07);
+    background: rgba(124, 58, 237, 0.07);
 }
 
 .f-col-title {
@@ -1512,7 +1523,7 @@ footer {
 }
 
 .nl-input:focus {
-    border-color: rgba(91, 110, 245, 0.4);
+    border-color: rgba(124, 58, 237, 0.4);
 }
 
 .nl-btn {
@@ -2063,7 +2074,7 @@ footer {
     background: var(--yellow);
     width: 22px;
     border-radius: 4px;
-    box-shadow: 0 0 8px rgba(91, 110, 245, 0.5);
+    box-shadow: 0 0 8px rgba(124, 58, 237, 0.5);
 }
 
 .card-dot:focus-visible {
@@ -2097,7 +2108,7 @@ footer {
     background: var(--yellow);
     color: #0C1211;
     border-color: var(--yellow);
-    box-shadow: 0 0 14px rgba(91, 110, 245, 0.35);
+    box-shadow: 0 0 14px rgba(124, 58, 237, 0.35);
     transform: scale(1.08);
 }
 
@@ -2867,7 +2878,7 @@ video {
     display: grid;
     place-items: center;
     cursor: pointer;
-    box-shadow: 0 4px 22px rgba(45, 140, 130, 0.45), 0 0 0 0 rgba(232, 194, 0, 0);
+    box-shadow: 0 4px 22px rgba(37, 99, 235, 0.45), 0 0 0 0 rgba(232, 194, 0, 0);
     transition: background 0.22s, transform 0.22s, box-shadow 0.22s, border-color 0.22s;
     position: relative;
     flex-shrink: 0;
@@ -2876,7 +2887,7 @@ video {
 .chat-fab:hover {
     background: #5C0000;
     transform: scale(1.08);
-    box-shadow: 0 6px 28px rgba(45, 140, 130, 0.55), 0 0 0 6px rgba(232, 194, 0, 0.12);
+    box-shadow: 0 6px 28px rgba(37, 99, 235, 0.55), 0 0 0 6px rgba(232, 194, 0, 0.12);
     border-color: var(--yellow);
 }
 
@@ -3113,8 +3124,8 @@ video {
 }
 
 .new-course-card:hover {
-    box-shadow: 0 15px 40px rgba(91, 110, 245, 0.15);
-    border-color: rgba(91, 110, 245, 0.3);
+    box-shadow: 0 15px 40px rgba(124, 58, 237, 0.15);
+    border-color: rgba(124, 58, 237, 0.3);
 }
 
 /* ─── Courses Grid ─────────────────────────────── */
@@ -3237,26 +3248,26 @@ video {
 
 .ncc-feature-box {
     background: linear-gradient(135deg, #F3F5FF 0%, #E8E5FF 100%);
-    border: 1px solid rgba(91, 110, 245, 0.1);
+    border: 1px solid rgba(124, 58, 237, 0.1);
     border-radius: 10px;
     height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 12px rgba(91, 110, 245, 0.08), inset 0 2px 4px rgba(255, 255, 255, 0.6);
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.08), inset 0 2px 4px rgba(255, 255, 255, 0.6);
     transition: background 0.3s, transform 0.3s, box-shadow 0.3s, border-color 0.3s;
 }
 
 .new-course-card:hover .ncc-feature-box {
     background: linear-gradient(135deg, #E8E5FF 0%, #DCD8FF 100%);
-    box-shadow: 0 6px 16px rgba(91, 110, 245, 0.12), inset 0 2px 4px rgba(255, 255, 255, 0.6);
+    box-shadow: 0 6px 16px rgba(124, 58, 237, 0.12), inset 0 2px 4px rgba(255, 255, 255, 0.6);
 }
 
 .ncc-feature-box:hover {
     background: linear-gradient(135deg, #DCD8FF 0%, #CFC9FF 100%);
     transform: translateY(-4px) scale(1.03);
-    box-shadow: 0 8px 20px rgba(91, 110, 245, 0.2), inset 0 2px 4px rgba(255, 255, 255, 0.8);
-    border-color: rgba(91, 110, 245, 0.4);
+    box-shadow: 0 8px 20px rgba(124, 58, 237, 0.2), inset 0 2px 4px rgba(255, 255, 255, 0.8);
+    border-color: rgba(124, 58, 237, 0.4);
 }
 
 .ncc-link {
@@ -3295,7 +3306,7 @@ video {
 }
 
 .dropdown-item:hover {
-    background: rgba(91, 110, 245, 0.1);
+    background: rgba(124, 58, 237, 0.1);
     color: var(--maroon);
 }
 
